@@ -9,10 +9,6 @@ const Login = () => {
 
   const [error, setError] = useState("");
 
-  const [image, setImage] = useState(
-    "https://tl.vhv.rs/dpng/s/580-5805713_monkey-emoji-transparent-3-monkeys-emoji-png-png.png"
-  );
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,18 +16,6 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const handleFocus = () => {
-    setImage(
-      "https://th.bing.com/th/id/OIP.uCubzrhbfOezWBJ9dgeq_gAAAA?rs=1&pid=ImgDetMain"
-    );
-  };
-
-  const handleBlur = () => {
-    setImage(
-      "https://tl.vhv.rs/dpng/s/580-5805713_monkey-emoji-transparent-3-monkeys-emoji-png-png.png"
-    );
   };
 
   const handleSubmit = async (e) => {
@@ -48,13 +32,13 @@ const Login = () => {
       const data = await response.text();
       const statusCode = response.status;
       if (statusCode === 200) {
-        navigate("/");
+        navigate("/home");
       } else {
         setError(data);
       }
     } catch (error) {
       console.error("Error:", error);
-      setError("An error occurred. Please try again.");
+      setError(error);
     }
   };
 
@@ -107,8 +91,6 @@ const Login = () => {
                   autoComplete="current-password"
                   required
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
                   className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm"
                 />
               </div>

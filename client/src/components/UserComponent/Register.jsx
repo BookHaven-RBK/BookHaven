@@ -17,6 +17,7 @@ const Register = () => {
       [e.target.name]: e.target.value,
     });
   };
+  console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +35,7 @@ const Register = () => {
         body: JSON.stringify(formData),
       });
       if (response.status === 201) {
-        navigate("/");
+        navigate("/home");
       } else {
         const errorMessage = await response.text();
         setError(errorMessage);
@@ -143,7 +144,7 @@ const Register = () => {
           <p className="text-center mt-4 text-gray-600">
             Already have an account?{" "}
             <button
-              onClick={() => navigate("/sign-in")}
+              onClick={() => navigate("/")}
               className="text-sky-600 hover:underline"
             >
               Sign in

@@ -13,7 +13,7 @@ const Navbar = () => {
             Add Book
           </Link>
           <Link to="/sign-in" className="mr-4">
-            Sign In
+            Sign out
           </Link>
         </div>
       </div>
